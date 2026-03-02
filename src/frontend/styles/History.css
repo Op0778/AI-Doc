@@ -1,0 +1,192 @@
+.history-container {
+  min-height: 100vh;
+  padding: 40px;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.history-search {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+/* List */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Card */
+.history-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* KEY FIX */
+  background: var(--card-background);
+  padding: 20px 25px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: 0.2s ease;
+}
+
+.history-card:hover {
+  border-color: var(--primary-color);
+}
+
+/* LEFT SIDE */
+.history-left {
+  flex: 1; /* Take available space */
+}
+
+.history-left h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.repo-link {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* TECH TAGS */
+.tech-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-badge {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  background: #eef4ff;
+  color: var(--primary-color);
+}
+
+/* RIGHT SIDE */
+.history-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* align right */
+  gap: 10px;
+  min-width: 160px;
+}
+
+/* Date */
+.date {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Button Group */
+.history-right .btn {
+  width: 130px; /* equal width buttons */
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Buttons */
+.pdf-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.md-btn {
+  background: #f1f5f9;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.pdf-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* tablet view */
+@media (max-width: 992px) {
+  .history-container {
+    padding: 25px;
+  }
+
+  .history-card {
+    padding: 18px;
+  }
+
+  .history-right {
+    min-width: 130px;
+  }
+
+  .history-right .btn {
+    width: 110px;
+  }
+}
+
+/* mobile view */
+@media (max-width: 768px) {
+  .history-container {
+    padding: 20px 15px;
+  }
+
+  /* Header stack */
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  /* Card vertical layout */
+  .history-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  /* Right section becomes full width */
+  .history-right {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* Buttons full width */
+  .history-right .btn {
+    width: 100%;
+  }
+
+  /* Improve text wrapping */
+  .repo-link {
+    word-break: break-all;
+  }
+}
+
+/* small mobile view */
+@media (max-width: 480px) {
+  .history-left h2 {
+    font-size: 16px;
+  }
+
+  .repo-link {
+    font-size: 13px;
+  }
+
+  .tech-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+}

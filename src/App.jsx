@@ -4,6 +4,7 @@ import Register from "./frontend/auth/Register";
 import { Routes, Route } from "react-router-dom";
 import Home from "./frontend/pages/Home";
 import { Navigate } from "react-router-dom";
+import History from "./frontend/pages/History";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -33,6 +34,7 @@ function App() {
             token ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
           }
         />
+        <Route path="/history" element={<History />} />
       </Routes>
     </div>
   );
