@@ -1,0 +1,104 @@
+.historyList {
+  margin-left: 20vw;
+  padding: 30px;
+  min-height: 100vh;
+  transition: var(--transition);
+}
+
+.historyList h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-background);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-width: 650px;
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: var(--sidebar-hover);
+}
+
+button {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 13px;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  cursor: pointer;
+}
+
+/* Action Variants */
+.btn-delete {
+  background-color: #ef4444;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
+
+.btn-edit {
+  background-color: #22c55e;
+}
+
+.btn-edit:hover {
+  background-color: #16a34a;
+}
+
+@media (max-width: 768px) {
+  .historyList {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .historyList h1 {
+    font-size: 20px;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  th,
+  td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
