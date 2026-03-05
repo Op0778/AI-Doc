@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "./frontend/auth/Login";
 import Register from "./frontend/auth/Register";
-import Navbar from "./frontend/componentes/Navbar";
+// import Navbar from "./frontend/componentes/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./frontend/pages/Home";
 import { Navigate } from "react-router-dom";
@@ -32,9 +32,10 @@ function App() {
   return (
     <div className="">
       <Routes>
+        {/* <Navbar /> */}
         <Route path="/" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
-        <Route element={<Navbar/>} />
+
         <Route
           path="/home"
           element={
