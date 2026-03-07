@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Login from "./frontend/auth/Login";
-import Register from "./frontend/auth/Register";
+// import { useState } from "react";
+// import Login from "./frontend/auth/Login";
+// import Register from "./frontend/auth/Register";
 // import Navbar from "./frontend/componentes/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./frontend/pages/Home";
@@ -13,27 +13,28 @@ import UserUpdate from "./frontend/pages/admin/UserUpdate";
 import AdminHistory from "./frontend/pages/admin/History";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  // const [token, setToken] = useState(localStorage.getItem("token"));
 
-  const handleLogin = (t, id, role) => {
-    setToken(t);
-    localStorage.setItem("token", t);
-    localStorage.setItem("userId", id);
-    localStorage.setItem("role", role);
-  };
+  // const handleLogin = (t, id, role) => {
+  //   setToken(t);
+  //   localStorage.setItem("token", t);
+  //   localStorage.setItem("userId", id);
+  //   localStorage.setItem("role", role);
+  // };
 
-  const handleLogout = () => {
-    setToken(null);
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("role");
-  };
+  // const handleLogout = () => {
+  //   setToken(null);
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userId");
+  //   localStorage.removeItem("role");
+  // };
 
   return (
     <div className="">
       <Routes>
+        <Route path="/" element={<Home />} />
         {/* <Navbar /> */}
-        <Route path="/" element={<Login onLogin={handleLogin} />} />
+        {/* <Route path="/" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
 
         <Route
@@ -41,7 +42,7 @@ function App() {
           element={
             token ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
           }
-        />
+        /> */}
         <Route path="/history" element={<History />} />
 
         <Route path="/admin" element={<AdminRoute />}>
