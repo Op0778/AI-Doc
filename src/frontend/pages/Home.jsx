@@ -1,12 +1,16 @@
 import React from "react";
 import Navbar from "../componentes/Navbar";
+import Footer from "../componentes/Footer";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      welcom to my ai
+      WELCOME TO MY AI ...
+       <Footer />
+      
     </div>
+
   );
 };
 
