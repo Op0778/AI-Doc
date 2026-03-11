@@ -1,19 +1,55 @@
-.form {
-  display: flex;
-  justify-content: center;
-  margin: 30px;
+/* Container styling */
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
-.form input {
-  width: 400px;
-  padding: 10px;
+/* Input field styling */
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
   border: 1px solid #ccc;
+  margin-top: 10px;
 }
 
-.form button {
-  padding: 10px 20px;
-  background-color: #2563eb;
-  color: white;
+/* Button row styling */
+.buttonRow {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Normal button styling */
+button {
+  padding: 10px 15px;
+  border-radius: 6px;
   border: none;
+  background-color: #4caf50;
+  color: white;
   cursor: pointer;
+}
+
+/* Clear button styling */
+.clearButton {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+}
+
+/* Message styling */
+.message {
+  margin-top: 10px;
+  font-weight: bold;
 }
