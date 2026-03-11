@@ -1,0 +1,82 @@
+/* Main Footer Container */
+.foot {
+  /* position: fixed; */
+  bottom: 0;
+  background-color: #111; /* Dark background */
+  color: white;
+  padding: 25px 30px;
+  width: 100%;
+}
+
+/* Top section (icons + navigation) */
+.top {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Makes it responsive */
+  margin-bottom: 15px;
+}
+
+/* Social icons container */
+.social {
+  display: flex;
+  gap: 15px;
+}
+
+/* Individual icon style */
+.icon {
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+/* Hover effect for icons */
+.icon:hover {
+  color: #0d6efd; /* Blue hover color */
+}
+
+/* Navigation menu */
+.footer-nav {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* Navigation items */
+.footer-nav li {
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.footer-nav li:hover {
+  color: #0d6efd;
+}
+
+/* Bottom text section */
+.bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/* Bottom paragraph spacing */
+.bottom p {
+  margin: 5px 0;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav {
+    gap: 15px;
+  }
+}
