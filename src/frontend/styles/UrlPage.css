@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.form input {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

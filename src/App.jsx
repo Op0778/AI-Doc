@@ -11,6 +11,7 @@ import Dashboard from "./frontend/pages/admin/Dashboard";
 import UserList from "./frontend/pages/admin/UserList";
 import UserUpdate from "./frontend/pages/admin/UserUpdate";
 import AdminHistory from "./frontend/pages/admin/History";
+import UrlPage from "./frontend/pages/UrlPage";
 
 function App() {
   // const [token, setToken] = useState(localStorage.getItem("token"));
@@ -44,6 +45,7 @@ function App() {
           }
         /> */}
         <Route path="/history" element={<History />} />
+        <Route path="/url" element={<UrlPage />} />
 
         <Route path="/admin" element={<AdminRoute />}>
           <Route path="dashboard" element={<Dashboard />} />

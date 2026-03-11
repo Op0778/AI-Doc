@@ -1,0 +1,11 @@
+.viewer {
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.viewer pre {
+  white-space: pre-wrap;
+}
