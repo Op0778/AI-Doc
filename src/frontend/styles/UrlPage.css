@@ -1,6 +1,9 @@
 /* Container styling */
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 500px;
+  max-height: fit-content;
   margin: 40px auto;
   padding: 20px;
   text-align: center;
