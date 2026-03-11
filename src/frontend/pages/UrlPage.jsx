@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { generateDoc } from "../services/api";
 import "../styles/UrlPage.css";
 
-function UrlPage() {
+function UrlPage({ setDoc, setLoading }) {
   const [url, setUrl] = useState("");
   const [message, setMessage] = useState("");
 
@@ -32,6 +33,16 @@ function UrlPage() {
     }
   };
 
+  const handleGenerateDoc = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const { data } = await generateDoc(url);
+    setDoc(data.generatedDoc);
+
+    setLoading(false);
+  };
+
   return (
     <div className="container">
       <h2>Enter or Paste URL</h2>
@@ -45,6 +56,10 @@ function UrlPage() {
       />
 
       <div className="buttonRow">
+        <button onClick={handleClear} className="clearButton">
+          Clear
+        </button>
+
         <button onClick={handlePaste} className="button">
           Paste URL
         </button>
@@ -53,8 +68,8 @@ function UrlPage() {
           Check URL
         </button>
 
-        <button onClick={handleClear} className="clearButton">
-          Clear
+        <button onClick={handleGenerateDoc} className="button">
+          Generate Documentation
         </button>
       </div>
 

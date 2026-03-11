@@ -5,7 +5,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import historyRoutes from "./routes/history.js";
 import adminRoutes from "./routes/adminRoute.js";
-import generateDocRoute from "./routes/generateDoc.js";
+import docRoute from "./routes/docRoute.js";
 
 // dotenv.config();
 connectDB();
@@ -17,10 +17,9 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/history", historyRoutes);
+app.use("/api/doc", docRoute);
 
 app.use("/api", adminRoutes);
-
-app.use("/api/generate-doc", generateDocRoute);
 
 app.get("/", (req, res) => {
   res.send("API Running...");
