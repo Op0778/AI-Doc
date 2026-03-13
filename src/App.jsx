@@ -12,9 +12,11 @@ import UserList from "./frontend/pages/admin/UserList";
 import UserUpdate from "./frontend/pages/admin/UserUpdate";
 import AdminHistory from "./frontend/pages/admin/History";
 import UrlPage from "./frontend/pages/UrlPage";
+import Profile from "./frontend/pages/Profile";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
+  //  token = localStorage.getItem("token");
 
   const handleLogin = (t, id, role) => {
     setToken(t);
@@ -46,6 +48,10 @@ function App() {
         />
         <Route path="/history" element={<History />} />
         <Route path="/url" element={<UrlPage />} />
+         <Route
+          path="/profile"
+          element={token ? <Profile token={token} /> : <Navigate to="/" />}
+        />
 
         <Route path="/admin" element={<AdminRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
