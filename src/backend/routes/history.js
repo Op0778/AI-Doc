@@ -1,21 +1,19 @@
 import express from "express";
-import History from "../models/History.js";
-import authMiddleware from "../middleware/auth.js";
+import { verifyToken } from "../middleware/auth.js";
+import History from "../models/Doc.js";
 
 const router = express.Router();
 
-// GET Logged-in user's history
-router.get("/history", authMiddleware, async (req, res) => {
+router.get("/history", verifyToken, async (req, res) => {
   try {
-    const history = await History.find({ user: req.user.id }).sort({
-      createdAt: -1,
-    });
+    const history = await History.find({
+      user: req.user.id,
+    }).sort({ createdAt: -1 });
 
     res.json(history);
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
     console.log(error);
-    res.redirect("/login");
+    res.status(500).json({ message: "Server error" });
   }
 });
 
