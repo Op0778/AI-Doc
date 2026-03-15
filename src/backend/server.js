@@ -16,9 +16,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/history", historyRoutes);
+app.use("/api", historyRoutes);
 app.use("/api/doc", docRoute);
-app.use("/api",profileRoute);
+app.use("/api", profileRoute);
 app.use("/api", adminRoutes);
 
 app.get("/", (req, res) => {

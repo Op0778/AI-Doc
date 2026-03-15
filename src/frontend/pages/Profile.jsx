@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUserCircle } from "react-icons/fa";
 // import "../style/profileStyle.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import connectionUrl from "./url";
 
-function Profile(s) {
+function Profile(token) {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-const token = localStorage.getItem("token");
+  // const navigate = useNavigate();
+  // const token = localStorage.getItem("token");
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -33,7 +33,6 @@ const token = localStorage.getItem("token");
       <p>
         <strong>Email:</strong> {user.email}
       </p>
-      
     </div>
   );
 }
