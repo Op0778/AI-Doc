@@ -18,7 +18,7 @@ function Navbar() {
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
         <Link to="/home">Home</Link>
         <Link to="/history">History</Link>
-        <Link to="">Profile</Link>
+        <Link to="/profile">Profile</Link>
       </ul>
 
       <Link to="/admin/dashboard" className="admin-link">
