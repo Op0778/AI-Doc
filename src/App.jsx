@@ -48,7 +48,7 @@ function App() {
         />
         <Route path="/history" element={<History />} />
         <Route path="/url" element={<UrlPage />} />
-         <Route
+        <Route
           path="/profile"
           element={token ? <Profile token={token} /> : <Navigate to="/" />}
         />

@@ -6,14 +6,15 @@ function UrlPage({ setDoc, setLoading }) {
   const [url, setUrl] = useState("");
   const [message, setMessage] = useState("");
 
-  // Handle paste from clipboard
+  // Paste URL
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText();
       setUrl(text);
-      setMessage("URL pasted successfully");
-    } catch {
-      setMessage("Clipboard access denied");
+      setMessage("URL pasted successfully ✅");
+    } catch (err) {
+      console.log(err);
+      setMessage("Clipboard access denied ❌");
     }
   };
 
@@ -25,6 +26,11 @@ function UrlPage({ setDoc, setLoading }) {
 
   // Validate URL
   const handleSubmit = () => {
+    if (!url) {
+      setMessage("Please enter a URL");
+      return;
+    }
+
     try {
       new URL(url);
       setMessage("Valid URL ✅");
@@ -33,23 +39,48 @@ function UrlPage({ setDoc, setLoading }) {
     }
   };
 
+  // Generate documentation
   const handleGenerateDoc = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
-    const { data } = await generateDoc(url);
-    setDoc(data.generatedDoc);
+    if (!url) {
+      setMessage("Please enter a repository URL");
+      return;
+    }
 
-    setLoading(false);
+    try {
+      new URL(url);
+    } catch {
+      setMessage("Invalid URL ❌");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await generateDoc(url);
+
+      if (res?.data?.generatedDoc) {
+        setDoc(res.data.generatedDoc);
+        setMessage("Documentation generated successfully 🎉");
+      } else {
+        setMessage("Failed to generate documentation");
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("Server error while generating documentation ❌");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="container">
-      <h2>Enter or Paste URL</h2>
+      <h2>Enter or Paste Repository URL</h2>
 
       <input
         type="text"
-        placeholder="Type or paste your URL here..."
+        placeholder="Paste GitHub repo URL..."
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         className="input"

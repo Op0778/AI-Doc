@@ -1,20 +1,23 @@
 import express from "express";
-const router = express.Router();
-import authMiddleware from "../middleware/auth.js";
-
+import { verifyToken } from "../middleware/auth.js";
 import User from "../models/User.js";
 
+const router = express.Router();
+
 /* GET LOGGED USER PROFILE */
+router.get("/profile", verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
 
-router.get("/profile", authMiddleware, (req, res) => {
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
-  const user = User.find((u) => u.id === req.userId);
-
-  if (!user) {
-    return res.status(404).json({ message: "User not found" });
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
   }
-
-  res.json(user);
-
 });
+
 export default router;

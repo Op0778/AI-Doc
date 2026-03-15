@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUserCircle } from "react-icons/fa";
-// import "../style/profileStyle.css";
-// import { useNavigate } from "react-router-dom";
 import connectionUrl from "./url";
+import "../styles/Profile.css";
 
-function Profile(token) {
+function Profile({ token }) {
   const [user, setUser] = useState(null);
-  // const navigate = useNavigate();
-  // const token = localStorage.getItem("token");
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(`${connectionUrl}/api/profile`, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
+
         setUser(res.data);
       } catch (err) {
-        console.error(err);
+        console.error("Profile fetch error:", err);
       }
     };
-    fetchProfile();
+
+    if (token) {
+      fetchProfile();
+    }
   }, [token]);
 
   if (!user) return <p>Loading profile...</p>;
 
   return (
     <div className="profile">
+      <FaUserCircle size={60} />
       <p>
         <strong>Username:</strong> {user.username}
       </p>

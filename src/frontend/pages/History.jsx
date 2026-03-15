@@ -10,6 +10,7 @@ function History() {
     const fetchHistory = async () => {
       try {
         const token = localStorage.getItem("token");
+        console.log(token);
 
         const res = await fetch(`${connectionUrl}/api/history`, {
           headers: {

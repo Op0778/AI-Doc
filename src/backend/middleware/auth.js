@@ -1,18 +1,29 @@
+// middleware/auth.js
 import jwt from "jsonwebtoken";
 
-export default function (req, res, next) {
-  const token = req.headers.authorization;
+const SECRET = "mysecretecode";
 
-  if (!token) return res.status(401).json({ message: "No token" });
-
+export const verifyToken = (req, res, next) => {
   try {
-    const decoded = jwt.verify(token.split(" ")[1], "mysecretkey");
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    if (!token) {
+      return res.status(401).json({ message: "Invalid token format" });
+    }
+
+    const decoded = jwt.verify(token, SECRET);
+
     req.user = decoded;
+
     next();
   } catch (error) {
-    res.status(401).json({ message: "Invalid token" });
-    alert("Session expired. Please log in again.");
-    console.log(error);
-    res.redirect("/login");
+    console.log("JWT Error:", error.message);
+    return res.status(401).json({ message: "Invalid or expired token" });
   }
-}
+};
